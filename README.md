@@ -25,6 +25,13 @@ Aplicación web desarrollada en Python con Flask para la administración de libr
 
 ---
 
+## 🔐 Credenciales
+
+Usuario:  admin
+Contraseña:  1234
+
+---
+
 ## 📊 Arquitectura
 
 Aplicación basada en arquitectura MVC:
