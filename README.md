@@ -1,34 +1,43 @@
-\# Sistema de Gestión de Biblioteca
+# 📚 Sistema de Gestión de Biblioteca
 
+Aplicación web desarrollada en Python con Flask para la administración de libros, préstamos y devoluciones.
 
+---
 
-Aplicación desarrollada en Python usando Flask.
+## 🚀 Tecnologías utilizadas
 
+- Python 3
+- Flask
+- SQLite
+- HTML5
+- CSS3
 
+---
 
-\## Requisitos
+## 🔐 Funcionalidades
 
-\- Python 3.10 o superior
+✔ Login administrador  
+✔ Dashboard dinámico  
+✔ Registro de libros  
+✔ Préstamo y devolución  
+✔ Control de disponibilidad  
+✔ Fecha de préstamo y devolución estimada  
 
+---
 
+## 📊 Arquitectura
 
-\## Instalación
+Aplicación basada en arquitectura MVC:
 
-1\. Instalar dependencias:
+- Modelos: Base de datos SQLite
+- Vista: Templates HTML
+- Controlador: Flask (app.py)
 
-&nbsp;  pip install -r requirements.txt
+---
 
+## ⚙ Instalación
 
-
-2\. Ejecutar aplicación:
-
-&nbsp;  python app.py
-
-
-
-\## Credenciales
-
-Usuario: admin
-
-Clave: 1234
+```bash
+pip install -r requirements.txt
+python app.py
 
