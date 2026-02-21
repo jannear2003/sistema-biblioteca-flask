@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">Dashboard Biblioteca</h2>
+
+<div class="row">
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-center p-3">
+            <h5>Total Libros</h5>
+            <h2>{{ total_libros }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-center p-3 border-success">
+            <h5>Disponibles</h5>
+            <h2 class="text-success">{{ libros_disponibles }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-center p-3 border-danger">
+            <h5>Prestados</h5>
+            <h2 class="text-danger">{{ libros_prestados }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <div class="card shadow-sm text-center p-3 border-primary">
+            <h5>Total Usuarios</h5>
+            <h2 class="text-primary">{{ total_usuarios }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <div class="card shadow-sm text-center p-3 border-warning">
+            <h5>Préstamos Activos</h5>
+            <h2 class="text-warning">{{ total_prestamos }}</h2>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Biblioteca</title>
+</head>
+<body>
+
+<h1>Dashboard Biblioteca</h1>
+
+<a href="{{ url_for('logout') }}">
+    <button style="background:red;color:white;padding:6px;border:none;">
+        Cerrar sesión
+    </button>
+</a>
+
+<h2>Resumen</h2>
+<p>Libros disponibles: {{ disponibles }}</p>
+<p>Libros prestados: {{ prestados }}</p>
+
+<hr>
+
+<h2>Agregar Libro</h2>
+<form action="/agregar" method="POST">
+    <input type="text" name="titulo" placeholder="Título del libro">
+    <button type="submit">Agregar</button>
+</form>
+
+<hr>
+
+<h2>Lista de Libros</h2>
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Título</th>
+    <th>Estado</th>
+    <th>Acción</th>
+</tr>
+
+{% for libro in libros %}
+<tr>
+    <td>{{ libro[0] }}</td>
+    <td>{{ libro[1] }}</td>
+    <td>{{ libro[2] }}</td>
+    <td>
+        {% if libro[2] == 'Disponible' %}
+            <a href="/prestar/{{ libro[0] }}">Prestar</a>
+        {% else %}
+            <a href="/devolver/{{ libro[0] }}">Devolver</a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
