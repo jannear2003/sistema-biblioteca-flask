@@ -17,8 +17,8 @@ Aplicación web desarrollada en Python con Flask para la administración de libr
 ## 🔐 Funcionalidades
 
 ✔ Login administrador  
-Usuario:  admin
-Contraseña:  1234
+✔ Usuario:  admin
+✔ Contraseña:  1234
 ✔ Dashboard dinámico  
 ✔ Registro de libros  
 ✔ Préstamo y devolución  
