@@ -1,18 +1,69 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Libros</h2>
+<h2 class="mb-4">Gestión de Libros</h2>
 
-<form method="POST">
-    <input type="text" name="titulo" placeholder="Título" required>
-    <input type="text" name="autor" placeholder="Autor" required>
-    <button type="submit">Agregar Libro</button>
-</form>
+<!-- MENSAJES FLASH -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
 
-<ul>
-{% for l in libros %}
-    <li>{{ l.titulo }} - {{ l.autor }}</li>
-{% endfor %}
+<!-- FORMULARIO -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <form method="POST">
+
+            <div class="mb-3">
+                <label class="form-label">Título</label>
+                <input class="form-control" type="text" name="titulo" placeholder="Ingrese el título" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Autor</label>
+                <input class="form-control" type="text" name="autor" placeholder="Ingrese el autor" required>
+            </div>
+
+            <button class="btn btn-success">
+                Agregar Libro
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<!-- LISTADO -->
+<ul class="list-group shadow-sm">
+    {% for l in libros %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+
+        <div>
+            <div class="fw-bold">{{ l.titulo }}</div>
+            <div class="text-muted small">{{ l.autor }}</div>
+
+            {% if l.disponible %}
+                <span class="badge bg-success mt-1">Disponible</span>
+            {% else %}
+                <span class="badge bg-danger mt-1">Prestado</span>
+            {% endif %}
+        </div>
+
+        <form action="/libros/eliminar/{{ l.id }}" method="post">
+            <button type="submit"
+                    class="btn btn-danger btn-sm"
+                    onclick="return confirm('¿Seguro que deseas eliminar este libro?');">
+                Eliminar
+            </button>
+        </form>
+
+    </li>
+    {% endfor %}
 </ul>
 
 {% endblock %}
